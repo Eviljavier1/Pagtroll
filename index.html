@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Te han troleado gilipollas</h1>
+    <img src="https://tenor.com/view/el-baile-del-trolleo-gif-25744265.gif" width="2550px" height="1440px">
+    <audio id="audio" autoplay muted loop>
+    <source src="troleo.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const audio = document.getElementById("audio");
+
+    // Intentar reproducir al cargar
+    window.addEventListener("DOMContentLoaded", () => {
+        audio.play().then(() => {
+            audio.muted = false;
+        }).catch(() => {
+            console.log("Bloqueado hasta interacción");
+        });
+    });
+
+    // Forzar reproducción con cualquier interacción
+    function activar() {
+        audio.muted = false;
+        audio.play();
+    }
+
+    document.addEventListener("click", activar);
+    document.addEventListener("mousemove", activar);
+    document.addEventListener("keydown", activar);
+</script>
+</body>
+</html>
